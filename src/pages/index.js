@@ -8,7 +8,7 @@ const Home = () => {
       <Container>
           <Row>
               <Col>
-                <h1>Merhaba. Nav menüyü kullanınız...</h1>
+                <h1>Merhaba.</h1>
               </Col>
           </Row>
       </Container>
