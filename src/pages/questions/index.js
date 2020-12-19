@@ -12,7 +12,7 @@ const List = ({ questions }) => {
         <Container>
           <div className="pb-4">
             <Row>
-              <Col md="2">
+              <Col lg="2">
                 <Link href="/questions/create-question">
                   <a className="btn btn-block btn-success">Yeni Soru Ekle</a>
                 </Link>
