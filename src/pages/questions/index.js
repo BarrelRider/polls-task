@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "reactstrap";
 import NavigationWrapper from "../../components/NavigationWrapper";
 import { Row, Col } from "reactstrap";
+import { withHost } from "../../utils/request";
 
 const List = ({ questions }) => {
 
@@ -39,7 +40,7 @@ const List = ({ questions }) => {
 };
 
 List.getInitialProps = async (ctx) => {
-  const res = await fetch("https://polls.apiblueprint.org/questions");
+  const res = await fetch(withHost("/questions"));
   const json = await res.json();
   return {
     questions: json,

@@ -11,6 +11,7 @@ import {
   Button,
 } from "reactstrap";
 import NavigationWrapper from "../../../components/NavigationWrapper";
+import { getHeaders, withHost } from "../../../utils/request";
 
 const CreateQuestion = () => {
   const [questionObj, setQuestionObj] = useState({
@@ -51,12 +52,9 @@ const CreateQuestion = () => {
 
   const submit = () => {
     const method = "POST";
-    const requestUrl = "https://polls.apiblueprint.org/questions?page=1";
-    fetch(requestUrl, {
+    fetch(withHost("/questions?page=1"), {
       method,
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-      },
+      headers: getHeaders(),
       body: JSON.stringify(questionObj)
     }).then((res) => res.json()).then((data) => {
       alert('Added successfully', JSON.stringify(data));

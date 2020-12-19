@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "reactstrap";
 import NavigationWrapper from "../../../components/NavigationWrapper";
+import { withHost } from "../../../utils/request";
 
 const Detail = ({ question, choices, url }) => {
 
@@ -12,16 +13,11 @@ const Detail = ({ question, choices, url }) => {
 
   const voteChoice = (url) => {
     const method= "POST";
-    const requestUrl = url;
-
-    fetch(`https://polls.apiblueprint.org${requestUrl}`, {
+    fetch(withHost(url), {
       method,
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-      }
     }).then((res) => res.json()).then(data => {
       alert(`Voted on ${data.choice}. Total vote: ${data.votes}`)
-      fetch(`https://polls.apiblueprint.org${details.url}`).then((res) => res.json()).then(data => {
+      fetch(withHost(details.url)).then((res) => res.json()).then(data => {
         setDetails({
           ...details,
           question: data.question,
@@ -61,7 +57,7 @@ const Detail = ({ question, choices, url }) => {
 };
 
 Detail.getInitialProps = async (ctx) => {
-  const res = await fetch(`https://polls.apiblueprint.org${ctx.asPath}`);
+  const res = await fetch(withHost(ctx.asPath));
   const json = await res.json();
 
   return {
