@@ -1,8 +1,30 @@
-# custom-react-template
+# Polls Task
 
-Customized React project template for general use.
+## Nasıl Çalışır ?
 
-- Scripts and styles are seperated.
-- All ".scss" files can be imported by "main.scss", so "index.js" file should import the one and only "main.scss"
-- Devs can use the sass's benefits (Extending style classes, including mixins etc.) in this project structure.
+* Uygulama açıldığında üst kısımda yer alan "Soru Listesi" ile soruları listeleyebilirsiniz.
+* Listenen sorulardan birini seçip, seçtiğiniz soruya ait seçeneklerden birine tıklayarak, oy verebilirsiniz.
+* Liste sayfasında bulunan "Yeni Soru Ekle" butonu ile kendiniz bir soru ekleyebilirsiniz.
 
+## Ön Gereksinimler
+
+* İlk olarak "Node.js" kurunuz.
+* Projenin bulunduğu dizine giderek, konsoldan aşağıdaki komutu çalıştırınız. Bu, projede kullanılan araçların yüklenmesi için gereklidir.
+
+```
+npm install
+```
+
+## Projeyi Çalıştırmak
+
+* Projeyi "local" de çalıştırmak için, yine komut satırında aşağıdaki kodu çalıştırınız.
+
+```
+npm run dev
+```
+
+* Komutu yazdıktan sonra komut satırında aşağıdaki gibi bir yazı göreceksiniz. Burdaki "http://localhost:" yazılı bölümü herhangi bir web tarayıcısında(Chrome, Safari vs.) açtığınızda, uygulamayı kullanabilceksiniz
+
+```
+ready - started server on http://localhost:3000
+```
